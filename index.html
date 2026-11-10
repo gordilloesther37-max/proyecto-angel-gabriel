@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="site-title-tag">Chronicles of Elysium</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body id="main-body">
+
+    <!-- Navbar Épico -->
+    <header class="epic-header">
+        <div class="nav-container">
+            <div class="logo-area">
+                <span class="logo-icon">⚔️</span>
+                <h1 id="site-title-display" contenteditable="true" title="¡Haz clic para editar el nombre épico!">Chronicles of Elysium</h1>
+            </div>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#inicio" class="nav-link">Santuario</a>
+                <a href="#personalizacion" class="nav-link">Alquimia Visual</a>
+                <a href="#boveda" class="nav-link">Bóveda</a>
+                <a href="#cronicas" class="nav-link">Crónicas (Formulario)</a>
+            </nav>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Hero Section / Santuario -->
+        <section id="inicio" class="hero-section">
+            <div class="hero-badge">Reino Interactivo v2.0</div>
+            <h2 id="hero-title">Forja Tu Propio Destino</h2>
+            <p>Bienvenido al nexo definitivo. Personaliza cada matiz visual, inmortaliza tus archivos en la memoria local y registra tus crónicas con poder absoluto.</p>
+            <div class="hero-buttons">
+                <a href="#personalizacion" class="epic-btn primary">Personalizar Reino</a>
+                <a href="#cronicas" class="epic-btn secondary">Escribir Crónica</a>
+            </div>
+        </section>
+
+        <!-- Sección Alquimia Visual (Colores, Fondos) -->
+        <section id="personalizacion" class="epic-card">
+            <h3>✨ Alquimia Visual & Estética</h3>
+            <p class="section-desc">Modifica los colores del pergamino místico, el tono de las letras y establece tu fondo sagrado.</p>
+            
+            <div class="controls-grid">
+                <!-- Color de Letra -->
+                <div class="control-group">
+                    <label for="textColorPicker">Color de la Letra:</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" id="textColorPicker" value="#f3f4f6">
+                        <span id="textColorHex">#f3f4f6</span>
+                    </div>
+                </div>
+
+                <!-- Color de Fondo Base -->
+                <div class="control-group">
+                    <label for="bgColorPicker">Tono Base del Fondo:</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" id="bgColorPicker" value="#0d1117">
+                        <span id="bgColorHex">#0d1117</span>
+                    </div>
+                </div>
+
+                <!-- Opacidad del velo -->
+                <div class="control-group">
+                    <label for="overlayOpacity">Densidad del Velo Oscuro: <span id="opacityVal">85</span>%</label>
+                    <input type="range" id="overlayOpacity" min="20" max="98" value="85">
+                </div>
+            </div>
+
+            <!-- Subir Fondo Personalizado -->
+            <div class="bg-upload-box">
+                <h4>📜 Imagen de Fondo Sagrada</h4>
+                <div class="upload-actions">
+                    <input type="file" id="bgImageInput" accept="image/*" class="file-input">
+                    <label for="bgImageInput" class="epic-btn primary upload-label">📂 Subir Fondo Local</label>
+                    <input type="text" id="bgUrlInput" placeholder="O pega URL de imagen directa..." class="text-input-url">
+                    <button id="applyBgUrl" class="epic-btn secondary">Aplicar URL</button>
+                    <button id="resetBg" class="epic-btn danger">Restaurar Fondo</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Bóveda de Archivos (LocalStorage) -->
+        <section id="boveda" class="epic-card">
+            <h3>🏰 Bóveda de Archivos & Recuerdos</h3>
+            <p class="section-desc">Almacena documentos, pergaminos o talismanes gráficos directamente en la memoria persistente del navegador.</p>
+            
+            <div class="vault-upload-area">
+                <input type="file" id="vaultFileInput" multiple class="file-input">
+                <label for="vaultFileInput" class="epic-btn primary vault-label">✨ Depositar Archivos en la Bóveda</label>
+            </div>
+
+            <div class="vault-list-container">
+                <h4>Archivos Custodiados:</h4>
+                <div id="vaultGrid" class="vault-grid">
+                    <p class="empty-notice">La bóveda está actualmente silenciosa y vacía...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Crónicas (Formulario Interactivo) -->
+        <section id="cronicas" class="epic-card">
+            <h3>📖 Registro de Crónicas (Formulario)</h3>
+            <p class="section-desc">Inscribe tus misiones, notas o decretos en los anales del tiempo.</p>
+
+            <form id="chronicleForm" class="epic-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="chronicleTitle">Título de la Crónica / Misión:</label>
+                        <input type="text" id="chronicleTitle" required placeholder="Ej: La Conquista del Abismo...">
+                    </div>
+                    <div class="form-group">
+                        <label for="chronicleCategory">Categoría:</label>
+                        <select id="chronicleCategory">
+                            <option value="Misión Principal">Misión Principal</option>
+                            <option value="Hechizo / Código">Hechizo / Código</option>
+                            <option value="Tesoro / Recuerdo">Tesoro / Recuerdo</option>
+                            <option value="Decreto Real">Decreto Real</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="chronicleText">Relato o Notas:</label>
+                    <textarea id="chronicleText" rows="4" required placeholder="Describe los detalles de tu gesta..."></textarea>
+                </div>
+                <button type="submit" class="epic-btn primary full-width">Inscribir Crónica</button>
+            </form>
+
+            <div class="chronicles-display">
+                <h4>📜 Pergaminos Inscritos:</h4>
+                <div id="chroniclesList" class="chronicles-grid">
+                    <!-- Dinámico -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Épico -->
+    <footer class="epic-footer">
+        <p>Chronicles of Elysium &copy; 2026 — Diseñado con poder absoluto y persistencia local.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
